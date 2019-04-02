@@ -10,11 +10,11 @@ import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
 
 @Service
-public class ClienteServiceImpl implements IClienteService{
+public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
 	private IClienteDao clienteDao;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public List<Cliente> findAll() {
@@ -22,9 +22,14 @@ public class ClienteServiceImpl implements IClienteService{
 	}
 
 	@Override
+	@Transactional(readOnly = true)
+	public Cliente findById(Long id) {
+		return clienteDao.findById(id).orElse(null);
+	}
+
+	@Override
 	@Transactional
 	public Cliente save(Cliente cliente) {
-		// TODO Auto-generated method stub
 		return clienteDao.save(cliente);
 	}
 
@@ -32,18 +37,6 @@ public class ClienteServiceImpl implements IClienteService{
 	@Transactional
 	public void delete(Long id) {
 		clienteDao.deleteById(id);
-		
 	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public Cliente findById(Long id) {
-		// TODO Auto-generated method stub
-		return clienteDao.findById(id).orElse(null);
-	}
-
-	
-	
-	
 
 }
