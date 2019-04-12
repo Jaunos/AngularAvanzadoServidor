@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bolsadeideas.springboot.backend.apirest.models.dao.IClienteDao;
 import com.bolsadeideas.springboot.backend.apirest.models.entity.Cliente;
+import com.bolsadeideas.springboot.backend.apirest.models.entity.Region;
 
 @Service
+@Transactional
 public class ClienteServiceImpl implements IClienteService {
 
 	@Autowired
@@ -48,5 +50,13 @@ public class ClienteServiceImpl implements IClienteService {
 	public Page<Cliente> findAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return clienteDao.findAll(pageable);
+	}
+
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Region> findAllRegiones() {
+		// TODO Auto-generated method stub
+		return clienteDao.findAllRegiones();
 	}
 }
