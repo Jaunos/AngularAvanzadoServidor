@@ -9,15 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="regiones")
+@Table(name = "regiones")
 public class Region implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nombre;
 
 	public Long getId() {
@@ -35,9 +33,7 @@ public class Region implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
-	
-	
+
+	private static final long serialVersionUID = 1L;
+
 }
