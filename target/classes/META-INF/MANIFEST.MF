@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: spring-boot-backend-apirest
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: juan
+Built-By: A743197
 Implementation-Vendor-Id: com.bolsadeideas.springboot.backend.apirest
 Build-Jdk: 1.8.0_191
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
