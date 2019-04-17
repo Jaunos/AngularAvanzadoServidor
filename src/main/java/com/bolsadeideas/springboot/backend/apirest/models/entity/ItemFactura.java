@@ -22,7 +22,7 @@ public class ItemFactura implements Serializable {
 	private Long id;
 
 	private Integer cantidad;
-
+	// Ignora las propiedades de hibernate en el json para que solo envie los datos del objeto
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "producto_id")

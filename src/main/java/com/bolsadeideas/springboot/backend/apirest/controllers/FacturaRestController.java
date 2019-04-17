@@ -29,8 +29,10 @@ public class FacturaRestController {
 
 	@Secured({"ROLE_ADMIN", "ROLE_USER"})
 	@GetMapping("/facturas/{id}")
+	// Si todo sale bien se devuelve un OK
 	@ResponseStatus(HttpStatus.OK)
 	public Factura show(@PathVariable Long id) {
+		// Devuelve la factura serializada en formato JSON
 		return clienteService.findFacturaById(id);
 	}
 	
@@ -41,6 +43,7 @@ public class FacturaRestController {
 		clienteService.deleteFacturaById(id);
 	}
 	
+	//Método para filtrar productos por el valor elegido
 	@Secured({"ROLE_ADMIN"})
 	@GetMapping("/facturas/filtrar-productos/{term}")
 	@ResponseStatus(HttpStatus.OK)
@@ -48,6 +51,8 @@ public class FacturaRestController {
 		return clienteService.findProductoByNombre(term);
 	}
 	
+	
+	// Método para crear facturas
 	@Secured({"ROLE_ADMIN"})
 	@PostMapping("/facturas")
 	@ResponseStatus(HttpStatus.CREATED)

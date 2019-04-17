@@ -56,9 +56,11 @@ public class Cliente implements Serializable {
 	@NotNull(message = "la región no puede ser vacia")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "region_id")
+	// Ignora las propiedades de hibernate en el json para que solo envie los datos del objeto
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Region region;
 
+	// Ignora las propiedades basura de hibernate en el json para que solo envie los datos del objeto
 	@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Factura> facturas;
