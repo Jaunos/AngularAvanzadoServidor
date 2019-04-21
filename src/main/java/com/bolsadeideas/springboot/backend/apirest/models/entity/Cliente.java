@@ -61,6 +61,7 @@ public class Cliente implements Serializable {
 	private Region region;
 
 	// Ignora las propiedades basura de hibernate en el json para que solo envie los datos del objeto
+	// Allow setter permite los setters y elimina problema de recursividad
 	@JsonIgnoreProperties(value={"cliente", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Factura> facturas;

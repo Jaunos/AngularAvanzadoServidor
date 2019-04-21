@@ -39,6 +39,7 @@ public class Factura implements Serializable {
 	private Date createAt;
 
 	// Ignora las propiedades de hibernate en el json para que solo envie los datos del objeto
+	// Allow setter permite los setters y elimina problema de recursividad
 	@JsonIgnoreProperties(value={"facturas", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Cliente cliente;
